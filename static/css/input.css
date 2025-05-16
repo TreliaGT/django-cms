@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+textarea,
+select {
+    box-sizing: border-box;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 5px 15px;
+}
+
+.width input[type="text"],
+.width input[type="email"],
+.width input[type="password"],
+.width input[type="number"],
+.width textarea,
+.width select {
+    width: 100%;
+}

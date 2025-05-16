@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Users{% endblock %}
+
+{% block content %}
+<div class="min-h-screen flex bg-gray-100">
+
+    <!-- Sidebar -->
+    {% include 'partials/sidebar.html' %}
+
+    <!-- Main content -->
+    <section class="flex-1 p-6">
+        <div class="flex justify-between items-center">
+            <h1 class="text-3xl font-semibold mb-6">User List</h1>
+            <a href="{% url 'add_user' %}"
+                class="bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition">Add User</a>
+        </div>
+        <ul class="space-y-4">
+            {% for user in users %}
+            <li class="bg-white p-4 rounded shadow flex justify-between items-center">
+                <div>
+                    <p class="font-medium text-gray-900">{{ user.username }}
+                        <span class="text-gray-500">({{user.email}})</span>
+                    </p>
+                    <p class="text-sm text-gray-600">Role: {{ user.role }}</p>
+                </div>
+                <a href="{% url 'edit_user' user.id %}" class="text-red-600 hover:underline">Edit</a>
+            </li>
+            {% empty %}
+            <li class="text-gray-500">No users found.</li>
+            {% endfor %}
+        </ul>
+    </section>
+
+</div>
+{% endblock %}

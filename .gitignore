@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.sqlite3
+*.db
+*.egg-info/
+*.egg
+*.log
+
+# Virtual environment
+env/
+venv/
+ENV/
+.env
+
+# Django stuff
+*.pyc
+*.pyo
+*.pyd
+*.swp
+media/
+staticfiles/
+
+# Django migrations
+*/migrations/*.pyc
+*/migrations/*.py[cod]
+*/migrations/__pycache__/
+
+# Node modules
+node_modules/
+
+# Tailwind / build files
+dist/
+public/
+
+# IDEs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
