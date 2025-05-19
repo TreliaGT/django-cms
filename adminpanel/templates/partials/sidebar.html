@@ -17,7 +17,26 @@
             <li x-data="{ open: false }">
                 <button @click="open = !open"
                     class="w-full flex items-center justify-between py-2 rounded hover:bg-purple-100 hover:text-purple-700 transition">
-                    <span> Content</span>
+                    <span>Page Content</span>
+                    <svg :class="{ 'rotate-180': open }" class="w-4 h-4 transform transition-transform" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <ul x-show="open" x-transition class="mt-1 ml-4 space-y-1 pl-2 border-l border-purple-300">
+                    {% for pt in pages_post_types %}
+                    <li>
+                        <a href="{% url 'pages:page_list' %}"
+                            class="block px-3 py-2 rounded hover:bg-purple-100 hover:text-purple-700 capitalize">{{pt.name}}</a>
+                    </li>
+
+                    {% endfor %}
+                </ul>
+            </li>
+            <li x-data="{ open: false }">
+                <button @click="open = !open"
+                    class="w-full flex items-center justify-between py-2 rounded hover:bg-purple-100 hover:text-purple-700 transition">
+                    <span>Misc Content</span>
                     <svg :class="{ 'rotate-180': open }" class="w-4 h-4 transform transition-transform" fill="none"
                         stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -26,14 +45,6 @@
                 <ul x-show="open" x-transition class="mt-1 ml-4 space-y-1 pl-2 border-l border-purple-300">
 
                     <li>
-                        <a href="{% url 'pages:page_list' %}"
-                            class="block px-3 py-2 rounded hover:bg-purple-100 hover:text-purple-700">Pages</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'pages:posttype_list' %}"
-                            class="block px-3 py-2 rounded hover:bg-purple-100 hover:text-purple-700">Post Type</a>
-                    </li>
-                    <li>
                         <a href="{% url 'pages:media_list' %}"
                             class="block px-3 py-2 rounded hover:bg-purple-100 hover:text-purple-700">Media</a>
                     </li>
@@ -41,8 +52,14 @@
                         <a href="{% url 'pages:navigation_list' %}"
                             class="block px-3 py-2 rounded hover:bg-purple-100 hover:text-purple-700">Navgation</a>
                     </li>
+                    <li>
+                        <a href="{% url 'pages:posttype_list' %}"
+                            class="block px-3 py-2 rounded hover:bg-purple-100 hover:text-purple-700">Post Type</a>
+                    </li>
                 </ul>
             </li>
+
+
             {% endif %}
             <!-- Admin with Dropdown -->
             <li x-data="{ open: false }">
