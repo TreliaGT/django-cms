@@ -12,7 +12,7 @@
     <section class="flex-1 p-6">
         <div class="flex justify-between items-center">
             <h1 class="text-3xl font-semibold mb-6">User List</h1>
-            <a href="{% url 'add_user' %}"
+            <a href="{% url 'adminapp:add_user' %}"
                 class="bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition">Add User</a>
         </div>
         <ul class="space-y-4">
@@ -24,7 +24,7 @@
                     </p>
                     <p class="text-sm text-gray-600">Role: {{ user.role }}</p>
                 </div>
-                <a href="{% url 'edit_user' user.id %}" class="text-red-600 hover:underline">Edit</a>
+                <a href="{% url 'adminapp:edit_user' user.id %}" class="text-red-600 hover:underline">Edit</a>
             </li>
             {% empty %}
             <li class="text-gray-500">No users found.</li>

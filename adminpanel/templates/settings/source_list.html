@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}Add User{% endblock %}
+
+{% block content %}
+<div class="min-h-screen flex bg-gray-100">
+
+    <!-- Sidebar -->
+    {% include 'partials/sidebar.html' %}
+
+    <!-- Main content -->
+    <section class="flex-1 p-6">
+        <div class="flex justify-between items-center">
+            <div class=" mb-6">
+                <h1 class="text-3xl font-semibold">Sources List</h1>
+                <p>Sources are the locations where APIs may be connected or retrieved from.</p>
+            </div>
+            <a href="{% url 'adminapp:source_add' %}"
+                class="bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition">Add Sources</a>
+        </div>
+        <ul class="space-y-4">
+            {% for source in sources %}
+            <li class="bg-white p-4 rounded shadow flex justify-between items-center">
+                <div>
+                    <p class="font-medium text-gray-900"> {{ source.name }} - {{ source.url }}
+
+                    </p>
+                </div>
+                <form action="{% url 'adminapp:source_delete' source.id %}" method="post" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit"
+                        class="bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition">Delete</button>
+                </form>
+            </li>
+            {% empty %}
+            <li class="text-gray-500">No Sources found.</li>
+            {% endfor %}
+        </ul>
+    </section>
+</div>
+{% endblock %}

@@ -4,6 +4,7 @@ input[type="text"],
 input[type="email"],
 input[type="password"],
 input[type="number"],
+input[type="url"],
 textarea,
 select {
     box-sizing: border-box;
@@ -15,6 +16,7 @@ select {
 .width input[type="email"],
 .width input[type="password"],
 .width input[type="number"],
+.width input[type="url"],
 .width textarea,
 .width select {
     width: 100%;

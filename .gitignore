@@ -27,6 +27,7 @@ staticfiles/
 */migrations/*.pyc
 */migrations/*.py[cod]
 */migrations/__pycache__/
+00*
 
 # Node modules
 node_modules/

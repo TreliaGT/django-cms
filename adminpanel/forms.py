@@ -1,5 +1,5 @@
 from django import forms
-from .models import CustomUser
+from .models import CustomUser ,Source
 
 class UserEditForm(forms.ModelForm):
     class Meta:
@@ -31,3 +31,8 @@ class AddUserForm(forms.ModelForm):
                 'class': 'h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300 rounded',
             }),
         }
+
+class SourceForm(forms.ModelForm):
+    class Meta:
+        model = Source
+        fields = ['name', 'url']
